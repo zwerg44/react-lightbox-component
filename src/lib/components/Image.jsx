@@ -146,7 +146,7 @@ export default class ImageContent extends React.Component {
 
   handleWheel(ev) {
     if(this.isInsideImage(ev))
-      this.handleZoom(ev.deltaY);
+      this.handleZoom(-ev.deltaY);
   }
 
   handleMove(ev) {
