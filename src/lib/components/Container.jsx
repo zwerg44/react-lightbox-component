@@ -44,19 +44,19 @@ export default class Container extends React.Component {
   componentDidMount() {
     this.getDescriptions();
     document.addEventListener('keydown', this.handleKeyboard);
-    const scrollTop = document.body.scrollTop;
+    const scrollTop = document.documentElement.scrollTop;
     addClass(document.documentElement, 'lightbox-open');
     document.documentElement.style.top = `-${scrollTop}px`;
-    document.body.scroll = "no"; // ie only
+    document.documentElement.scroll = "no"; // ie only
   }
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyboard);
-    const scrollTop = Math.abs(parseInt(document.documentElement.style.top, 10))
+    const scrollTop = Math.abs(parseInt(document.documentElement.style.top, 10));
     removeClass(document.documentElement, 'lightbox-open');
     document.documentElement.style.top = null;
-    document.body.scrollTop = scrollTop
-    document.body.scroll = "yes"; // ie only
+    document.documentElement.scrollTop = scrollTop;
+    document.documentElement.scroll = "yes"; // ie only
   }
 
   handleKeyboard(ev) {
